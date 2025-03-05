@@ -8,13 +8,13 @@ const client = new Twilio(
 );
 
 const to = process.env.TWILIO_TO_PHONE_NUMBER!;
-const from = process.env.TWILIO_FROM_PHONE_NUMBER!;
+const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID!;
 const body = "Hello from Twilio!";
 
 client.messages
   .create({
+    messagingServiceSid,
     to,
-    from,
     body,
   })
   .then((message) => console.log(message))
